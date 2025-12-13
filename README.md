@@ -1,169 +1,206 @@
-```markdown
-# ⚔️ The Book of Collections — A Task Ledger
-
-_A repository of trials, wherein each task be named, described, and—when conquered—marked with its due check._
-
-> Read not as mere notes, but as a chronicle of choices.  
-> For in collections, **the wrong vessel spillest all**.
-
----
-
 ## I. The Warm Steel (Foundational Choice)
 
-### ☑️ Task 1 — The Event Log
-**Status:** ⬜ Not Yet Completed  
+### **Task 1 — The Event Log**
 
-**Description:**  
-Design a structure to receive events in strict insertion order, permitting duplicates, with swift appends and later removal from the front.  
-The task testeth thy grasp of order, mutability, and removal cost.
+Thou receivest events in order.  
+Thou must:
 
-**Lesson Sought:**  
-- When FIFO removals sting  
-- Why random access tempteth fools  
-- Which structures endure time’s erosion  
+- append fast
+    
+- read them in insertion order
+    
+- allow duplicates
+    
+
+Later, thou must:
+
+- remove old events from the front
+    
+
+**Ask thyself:**
+
+- Is random access needed?
+    
+- Is removal frequent, and where?
+    
+
+👉 _Wrong choice shall punish thee quickly._
 
 ---
 
-### ☑️ Task 2 — Unique Visitors
-**Status:** ⬜ Not Yet Completed  
+### **Task 2 — Unique Visitors**
 
-**Description:**  
-Process a stream of user IDs to count uniques where order mattereth not.  
-Then evolve the design to preserve insertion order, and later still, to provide sorted order.
+Given a stream of user IDs:
 
-**Lesson Sought:**  
-- One problem, three collections  
-- Why requirements drift, and designs must bend  
-- The price of order  
+- count unique users
+    
+- order mattereth not
+    
+- speed mattereth greatly
+    
+
+Then extend it:
+
+- preserve insertion order
+    
+- then later, sorted order
+    
+
+👉 One task, **three different collections**, three reasons.
 
 ---
 
 ## II. The Thinking Blade (Trade-offs)
 
-### ☑️ Task 3 — Top K Frequent Elements
-**Status:** ⬜ Not Yet Completed  
+### **Task 3 — Top K Frequent Elements**
 
-**Description:**  
-Given a vast sea of integers, determine the top **K** most frequent, where updates and reads are many, yet **K** remaineth small.
+Given a million integers:
 
-**Lesson Sought:**  
-- Why one structure is never enough  
-- How frequency and priority entwine  
-- Separation of counting and ordering  
+- find top **K** most frequent
+    
+
+**Constraints:**
+
+- updates frequent
+    
+- reads frequent
+    
+- K is small
+    
+
+👉 Thou shalt likely need **two collections**, not one.
 
 ---
 
-### ☑️ Task 4 — Undo / Redo
-**Status:** ⬜ Not Yet Completed  
+### **Task 4 — Undo / Redo**
 
-**Description:**  
-Craft an undo–redo system where both operations are swift and memory is bounded.  
-Beware the naïve stack, for it deceiveth.
+Implement undo–redo for an editor.
 
-**Lesson Sought:**  
-- Directional history  
-- Controlled memory growth  
-- The folly of simplistic LIFO thinking  
+**Rules:**
+
+- undo is fast
+    
+- redo is fast
+    
+- memory is bounded
+    
+
+👉 If thou reachest for `Stack`, slap thy own hand.
 
 ---
 
 ## III. The Queue of Fate (Behavioral Insight)
 
-### ☑️ Task 5 — Task Scheduler
-**Status:** ⬜ Not Yet Completed  
+### **Task 5 — Task Scheduler**
 
-**Description:**  
-Schedule tasks by priority, yet preserve FIFO order among equals.  
-A trial subtle, yet oft failed.
+Tasks arrive with:
 
-**Lesson Sought:**  
-- Stable ordering  
-- Priority without chaos  
-- Composite comparison  
+- priority
+    
+- timestamp
+    
+
+Rules:
+
+- higher priority first
+    
+- same priority → FIFO
+    
+
+👉 This task exposeth whether thou _truly_ understandest queues.
 
 ---
 
-### ☑️ Task 6 — Sliding Window
-**Status:** ⬜ Not Yet Completed  
+### **Task 6 — Sliding Window**
 
-**Description:**  
-Maintain the last **N** elements of a stream while reporting min and max with haste.
+Given a stream of numbers:
 
-**Lesson Sought:**  
-- Why lists alone betray  
-- Amortized wisdom  
-- Double-ended discipline  
+- maintain last **N**
+    
+- report min and max efficiently
+    
+
+👉 List alone will betray thee.
 
 ---
 
 ## IV. The Subtle Traps (Interview Favorites)
 
-### ☑️ Task 7 — LRU Cache
-**Status:** ⬜ Not Yet Completed  
+### **Task 7 — LRU Cache**
 
-**Description:**  
-Implement an LRU cache where both `get()` and `put()` cost but O(1), and eviction obeyeth recency.
+Requirements:
 
-**Lesson Sought:**  
-- The union of order and access  
-- The one collection all Java devs must name  
-- When abstraction worketh for thee  
+- `get()` → O(1)
+    
+- `put()` → O(1)
+    
+- eviction by least recently used
+    
+
+👉 There is **one collection** Java devs expect thee to name.
 
 ---
 
-### ☑️ Task 8 — Concurrent Counter
-**Status:** ⬜ Not Yet Completed  
+### **Task 8 — Concurrent Counter**
 
-**Description:**  
-Compare three approaches to concurrent counting per key:
-1. `HashMap + synchronized`  
-2. `Collections.synchronizedMap`  
+Multiple threads update counts per key.
+
+**Try three versions:**
+
+1. `HashMap + synchronized`
+    
+2. `Collections.synchronizedMap`
+    
 3. `ConcurrentHashMap`
+    
 
-Measure, reason, and judge.
+Measure, reason, compare.
 
-**Lesson Sought:**  
-- Contention’s true cost  
-- Locks coarse and fine  
-- Why interviewers smile at this snare  
+👉 Interviewers _love_ this one.
 
 ---
 
 ## V. The Monk’s Exercises (Pure Reasoning)
 
-### ☑️ Task 9 — Choose Without Coding
-**Status:** ⬜ Not Yet Completed  
+### **Task 9 — Choose Without Coding**
 
-**Description:**  
-For each scenario, choose the proper collection and explain why all others fail—without writing code.
+For each scenario, answer _only_:
 
-**Lesson Sought:**  
-- Mental models over syntax  
-- Verbal precision  
-- Mastery without crutches  
+- which collection
+    
+- why not the others
+    
+
+Examples:
+
+- read-heavy config
+    
+- ordered uniqueness
+    
+- fast membership test
+    
+- range queries
+    
+- FIFO with blocking
+    
+
+If thou canst answer without code, mastery draweth near.
 
 ---
 
-## VI. The Rule Carved in Stone 🗿
+## VI. One Rule to Carve in Stone 🗿
 
-Before thou choosest a collection, ask—**always in this order**:
+When choosing a collection, always ask—in this order:
 
-1. Is **order** required?
-2. Are **duplicates** allowed?
-3. What is the **access pattern**?
-4. Is **concurrency** demanded?
-5. Where lieth the **Big-O pain**?
+1. **Order required?**
+    
+2. **Duplicates allowed?**
+    
+3. **Access pattern?** (read/write/remove)
+    
+4. **Concurrency?**
+    
+5. **Big-O pain point?**
+    
 
-Answer these five, and the structure revealeth itself.
-
----
-
-## Final Word
-
-This repository is not for code alone, but for **judgment**.  
-Mark each task when conquered.  
-Return often.  
-Doubt thy first answer.
-
-_When thou art ready, name the next trial, and I shall press thee until clarity remaineth._
-```
+If thou answerest these five, the collection chooseth _itself_.

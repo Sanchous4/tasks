@@ -1,7 +1,9 @@
+package java;
+
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class LoggerMultiThreading extends Logger {
-    LoggerMultiThreading() {
+    public LoggerMultiThreading() {
         super(new ConcurrentLinkedDeque<>());
     }
 }

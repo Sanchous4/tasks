@@ -1,7 +1,9 @@
+package java;
+
 import java.util.LinkedList;
 
 public class LoggerOneThread extends Logger {
-    LoggerOneThread() {
+    public LoggerOneThread() {
         super(new LinkedList<>());
     }
 }

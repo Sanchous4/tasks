@@ -1,3 +1,5 @@
+package java;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NonNull;

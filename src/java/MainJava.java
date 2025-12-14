@@ -1,3 +1,5 @@
+package java;
+
 import lombok.val;
 import org.jetbrains.annotations.NotNull;
 
@@ -10,7 +12,7 @@ import static java.lang.Thread.sleep;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class MainJava {
     public static void main(String[] args) {
         testOneTreadLogger();
         testMultiThreadingLogger();
@@ -33,11 +35,11 @@ public class Main {
 
         Thread.startVirtualThread(() -> {
             while(!Thread.currentThread().isInterrupted()) {
-                loggerMultiThreading.log(Main.threadMessage("I am first thread!"));
+                loggerMultiThreading.log(MainJava.threadMessage("I am first thread!"));
                 try {
                     sleep(Duration.ofSeconds(1));
                 } catch (InterruptedException e) {
-                    Main.threadMessage("I am was interrupted!");
+                    MainJava.threadMessage("I am was interrupted!");
                     Thread.currentThread().interrupt();
                     break;
                 }
@@ -46,11 +48,11 @@ public class Main {
 
         Thread.startVirtualThread(() -> {
             while(!Thread.currentThread().isInterrupted()) {
-                loggerMultiThreading.log(Main.threadMessage("I am second thread!"));
+                loggerMultiThreading.log(MainJava.threadMessage("I am second thread!"));
                 try {
                     sleep(Duration.ofSeconds(1));
                 } catch (InterruptedException e) {
-                    Main.threadMessage("I am was interrupted!");
+                    MainJava.threadMessage("I am was interrupted!");
                     Thread.currentThread().interrupt();
                     break;
                 }
